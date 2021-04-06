@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <%-include('includes/head')%>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%-include('includes/navbar')%>
+    <% if (isAuth) {%>
+        <div class="container mt-2">
+        <h1 class="mb-4">Todos</h1>
+        <% if (!todos.length) {%>
+            <h4>
+                No todos <br>
+                <a href="/create">you can create it here</a>
+            </h4>
+        <%} else {%>
+            <ul class="list-group">
+                <%for (var i=0; i < todos.length; i++) {%>
+                    <li class="list-group-item mb-2">
+                        <label class="<% if (todos[i].completed) {%>completed<%} %>">
+                            <form action="/completed" method="post" class="save">
+                                <input type="checkbox" name="completed" <% if (todos[i].completed) {%>checked<%} %>>
+                                <span><%=todos[i].title%></span>
+                                <input type="hidden" name="id" value="<%=todos[i].id%>">
+                                <button type="submit" class="btn btn-success btn-sm" style="margin-right: 8px;">Save</button>
+                            </form>
+                            <form action="/delete" method="post">
+                                <input type="hidden" name="id" value="<%=todos[i].id%>">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </label>
+                    </li>
+                <%}%>
+            </ul>
+            <br>
+            <h4 align="center">
+                <a href="/create">Create more</a>
+            </h4>
+        <%}%>
+    </div>
+    <% } else { %>
+        <div class="container mt-2">
+            <h1 class="mb-3">Simple Todo App</h1>
+            <h3>You don't have an account</h3>
+            <h4><a href="/auth/singup">Sign Up faster!</a></h4>
+        </div>
+    <% } %>
+</body>
+</html>

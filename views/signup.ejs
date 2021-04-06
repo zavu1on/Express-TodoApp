@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <%-include('includes/head')%>
+</head>
+<body>
+<%-include('includes/navbar')%>
+    <div class="container">
+        <h1 class="mb-4">Sign Up</h1>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="login">Login:</label>
+                <input type="email" id="login" name="email" class="form-control" required>
+            </div>
+            <div class="from-group">
+                <label for="pass">Password:</label>
+                <input type="password" name="password" id="pass" class="form-control" required minlength="4">
+            </div>
+            <div class="from-group">
+                <label for="re_pass">Configm password:</label>
+                <input type="password" name="re_password" id="re_pass" class="form-control" required minlength="4">
+            </div>
+            <button type="submit" class="btn btn-success btn-lg mt-3">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

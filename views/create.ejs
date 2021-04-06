@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <%-include('includes/head')%>
+</head>
+<body>
+<%-include('includes/navbar')%>
+    <div class="container">
+        <h1 class="mb-4">Create</h1>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="title">Todo text:</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
